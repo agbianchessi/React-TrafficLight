@@ -1,0 +1,68 @@
+{
+  "name": "react-trafficlight",
+  "version": "0.1.0",
+  "author": "Andrea Giovanni Bianchessi <andrea.g.bianchessi@gmail.com>",
+  "private": false,
+  "keywords": [
+    "react",
+    "traffic",
+    "light",
+    "signal",
+    "traffic light",
+    "traffic signal"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agbianchessi/React_TrafficLight.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agbianchessi/React_TrafficLight/issues"
+  },
+  "funding": "https://paypal.me/andreagbianchessi",
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "transpile": "NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "copy": "cp LICENSE README.md dist/",
+    "start": "react-scripts start",
+    "build": "npm run clean && npm run transpile && npm run copy",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
