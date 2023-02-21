@@ -5,6 +5,6 @@
  * @version 0.1.0
  */
 
-import TrafficLight from './components/TrafficLight';
+import TrafficSignal from './components/TrafficSignal';
 
-export { TrafficLight as default};
+export { TrafficSignal as default};

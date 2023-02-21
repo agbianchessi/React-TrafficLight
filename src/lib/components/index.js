@@ -1,1 +1,1 @@
-export { default } from './TrafficLight';
+export { default } from './TrafficSignal';

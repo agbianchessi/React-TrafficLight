@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTrafficLight } from './TrafficLight.styled';
+import { StyledTrafficSignal } from './TrafficSignal.styled';
 
 const randomID = (length) => {
     const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,13 +9,13 @@ const randomID = (length) => {
     return result;
 };
 
-const TrafficLight = ({ colors, signalID }) => {
+const TrafficSignal = ({ colors, signalID }) => {
 
     if (signalID == null)
         signalID = randomID(32);
 
     return (
-        <StyledTrafficLight>
+        <StyledTrafficSignal>
             <svg
 
                 viewBox="0 0 60 140"
@@ -173,12 +173,12 @@ const TrafficLight = ({ colors, signalID }) => {
                     </circle>
                 </g>
             </svg>
-        </StyledTrafficLight>
+        </StyledTrafficSignal>
     )
 }
 
 // Factory function (also called a higher-order function)
-function CreateIsTrafficLightColors(isRequired) {
+function CreateIsTrafficSignalColors(isRequired) {
     // The factory returns a custom prop type
     return function (props, propName, componentName) {
         const prop = props[propName];
@@ -200,13 +200,13 @@ function CreateIsTrafficLightColors(isRequired) {
     }
 }
 
-const isTrafficLightColors = CreateIsTrafficLightColors(false);
-isTrafficLightColors.isRequired = CreateIsTrafficLightColors(true);
+const isTrafficSignalColors = CreateIsTrafficSignalColors(false);
+isTrafficSignalColors.isRequired = CreateIsTrafficSignalColors(true);
 
-TrafficLight.propTypes = {
-    colors: isTrafficLightColors.isRequired,
+TrafficSignal.propTypes = {
+    colors: isTrafficSignalColors.isRequired,
     signalID: PropTypes.number,
     options: PropTypes.object,
 }
 
-export default TrafficLight;
+export default TrafficSignal;
