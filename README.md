@@ -12,7 +12,8 @@ npm install react-trafficsignal
 ```
 
 ### Demo
-Working demo on CodeSandbox
+Working demo on [CodeSandbox](https://codesandbox.io/s/react-trafficsignal-1n1rx2).
+
 
 ### API
 
