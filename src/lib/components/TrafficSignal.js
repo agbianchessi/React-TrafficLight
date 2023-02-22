@@ -152,7 +152,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                 paintOrder: "stroke markers fill",
                             }}
                             cx={85.0}
-                            cy={76.0}
+                            cy={75.0}
                             r={20}
                         >
                             {status.charAt(0) === "r" &&
@@ -184,7 +184,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                 paintOrder: "stroke markers fill",
                             }}
                             cx={85.0}
-                            cy={163.0}
+                            cy={165.0}
                             r={20}
                         >
                             {status.charAt(2) === "g" &&
