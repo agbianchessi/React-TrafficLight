@@ -47,9 +47,9 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             xlinkHref={`#a${signalID}`}
                             id={`d${signalID}`}
                             cx={85.0}
-                            cy={76.0}
+                            cy={75.0}
                             fx={85.0}
-                            fy={76.0}
+                            fy={75.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
                             gradientTransform="translate(0.0)"
@@ -58,23 +58,23 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             xlinkHref={`#b${signalID}`}
                             id={`e${signalID}`}
                             cx={85.0}
-                            cy={76.0}
+                            cy={75.0}
                             fx={85.0}
-                            fy={76.0}
+                            fy={75.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(0.0 43.0)"
+                            gradientTransform="translate(0.0 45.0)"
                         />
                         <radialGradient
                             xlinkHref={`#c${signalID}`}
                             id={`f${signalID}`}
                             cx={85.0}
-                            cy={76.0}
+                            cy={75.0}
                             fx={85.0}
-                            fy={76.0}
+                            fy={75.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(0.0 87.0)"
+                            gradientTransform="translate(0.0 90.0)"
                         />
                         <linearGradient id={`c${signalID}`}>
                             <stop
