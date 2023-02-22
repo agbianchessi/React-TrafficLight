@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="60mm"
+   height="140mm"
+   viewBox="0 0 60 140"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="lanterna.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0620589"
+     inkscape:cx="-46.607584"
+     inkscape:cy="298.94764"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="1341"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2118">
+      <stop
+         style="stop-color:#ffead2;stop-opacity:1;"
+         offset="0"
+         id="stop2114" />
+      <stop
+         style="stop-color:#00eb00;stop-opacity:1;"
+         offset="1"
+         id="stop2116" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2112">
+      <stop
+         style="stop-color:#ffdfdd;stop-opacity:1;"
+         offset="0"
+         id="stop2108" />
+      <stop
+         style="stop-color:#ffc600;stop-opacity:1;"
+         offset="1"
+         id="stop2110" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1995">
+      <stop
+         style="stop-color:#ffb7b7;stop-opacity:1;"
+         offset="0"
+         id="stop1991" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="1"
+         id="stop1993" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1995"
+       id="radialGradient1997"
+       cx="85.0"
+       cy="75.0"
+       fx="85.0"
+       fy="75.0"
+       r="20"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.0)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2112"
+       id="radialGradient1997-7"
+       cx="85.0"
+       cy="75.0"
+       fx="85.0"
+       fy="75.0"
+       r="20"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.0,43.0)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2118"
+       id="radialGradient1997-2"
+       cx="85.0"
+       cy="75.0"
+       fx="85.0"
+       fy="75.0"
+       r="20"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.0,87.0)" />
+  </defs>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-55.0,-50.0)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke-width:0.4;stroke-linejoin:round;paint-order:stroke markers fill"
+       id="rect118"
+       width="60"
+       height="140"
+       x="55.0"
+       y="50.0"
+       ry="6"
+       rx="6" />
+    <circle
+       style="opacity:1;fill:url(#radialGradient1997);fill-opacity:1;stroke-width:0.4;stroke-linejoin:round;paint-order:stroke markers fill"
+       id="path1937"
+       cx="85.0"
+       cy="75.0"
+       r="20" />
+    <circle
+       style="fill:url(#radialGradient1997-7);fill-opacity:1;stroke-width:0.4;stroke-linejoin:round;paint-order:stroke markers fill"
+       id="path1937-3"
+       cx="85.0"
+       cy="120.0"
+       r="20" />
+    <circle
+       style="fill:url(#radialGradient1997-2);fill-opacity:1;stroke-width:0.4;stroke-linejoin:round;paint-order:stroke markers fill"
+       id="path1937-2"
+       cx="85.0"
+       cy="165.0"
+       r="20" />
+  </g>
+</svg>
