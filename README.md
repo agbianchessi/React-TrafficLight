@@ -1,7 +1,7 @@
 # React-TrafficSignal
 Traffic Signal component for React.
 
-![Screenshot 2023-02-21 at 16 52 58](https://user-images.githubusercontent.com/5993480/220395935-1e6e393e-bcf4-4522-a8eb-9d50d1e1403c.png)
+![Screenshot 2023-02-22 at 17 49 46](https://user-images.githubusercontent.com/5993480/220698672-fe251739-e071-4e7a-8b39-2835a90789ac.png)
 
 ---
 
