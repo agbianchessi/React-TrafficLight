@@ -79,7 +79,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                         <linearGradient id={`c${signalID}`}>
                             <stop
                                 style={{
-                                    stopColor: status.toUpperCase().charAt(2) === "G" ? "#99ff99" : "#eeeeee",
+                                    stopColor: status.toUpperCase().charAt(2) === "G" ? "#99ff99" : "#888888",
                                     stopOpacity: 1,
                                 }}
                                 offset={0}
@@ -95,7 +95,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                         <linearGradient id={`b${signalID}`}>
                             <stop
                                 style={{
-                                    stopColor: status.toUpperCase().charAt(1) === "A" ? "#ffc699" : "#eeeeee",
+                                    stopColor: status.toUpperCase().charAt(1) === "A" ? "#ffc699" : "#888888",
                                     stopOpacity: 1,
                                 }}
                                 offset={0}
@@ -111,7 +111,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                         <linearGradient id={`a${signalID}`}>
                             <stop
                                 style={{
-                                    stopColor: status.toUpperCase().charAt(0) === "R" ? "#ff9999" : "#eeeeee",
+                                    stopColor: status.toUpperCase().charAt(0) === "R" ? "#ff9999" : "#888888",
                                     stopOpacity: 1,
                                 }}
                                 offset={0}
