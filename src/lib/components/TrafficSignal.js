@@ -46,35 +46,35 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                         <radialGradient
                             xlinkHref={`#a${signalID}`}
                             id={`d${signalID}`}
-                            cx={84.907}
-                            cy={76.452}
-                            fx={84.907}
-                            fy={76.452}
+                            cx={85.0}
+                            cy={76.0}
+                            fx={85.0}
+                            fy={76.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(.352)"
+                            gradientTransform="translate(0.0)"
                         />
                         <radialGradient
                             xlinkHref={`#b${signalID}`}
                             id={`e${signalID}`}
-                            cx={84.907}
-                            cy={76.452}
-                            fx={84.907}
-                            fy={76.452}
+                            cx={85.0}
+                            cy={76.0}
+                            fx={85.0}
+                            fy={76.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(.352 43.51)"
+                            gradientTransform="translate(0.0 43.0)"
                         />
                         <radialGradient
                             xlinkHref={`#c${signalID}`}
                             id={`f${signalID}`}
-                            cx={84.907}
-                            cy={76.452}
-                            fx={84.907}
-                            fy={76.452}
+                            cx={85.0}
+                            cy={76.0}
+                            fx={85.0}
+                            fy={76.0}
                             r={20}
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(.352 87.021)"
+                            gradientTransform="translate(0.0 87.0)"
                         />
                         <linearGradient id={`c${signalID}`}>
                             <stop
@@ -125,20 +125,20 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             />
                         </linearGradient>
                     </defs>
-                    <g transform="translate(-55.084 -50.315)">
+                    <g transform="translate(-55.0 -50.0)">
                         <rect
                             style={{
                                 opacity: 1,
                                 fill: "#000",
                                 fillOpacity: 1,
-                                strokeWidth: 0.402106,
+                                strokeWidth: 0.4,
                                 strokeLinejoin: "round",
                                 paintOrder: "stroke markers fill",
                             }}
                             width={60}
                             height={140}
-                            x={55.084}
-                            y={50.315}
+                            x={55.0}
+                            y={50.0}
                             ry={6}
                             rx={6}
                         />
@@ -147,12 +147,12 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                 opacity: 1,
                                 fill: `url(#d${signalID})`,
                                 fillOpacity: 1,
-                                strokeWidth: 0.391559,
+                                strokeWidth: 0.4,
                                 strokeLinejoin: "round",
                                 paintOrder: "stroke markers fill",
                             }}
-                            cx={85.26}
-                            cy={76.452}
+                            cx={85.0}
+                            cy={76.0}
                             r={20}
                         >
                             {status.charAt(0) === "r" &&
@@ -163,12 +163,12 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             style={{
                                 fill: `url(#e${signalID})`,
                                 fillOpacity: 1,
-                                strokeWidth: 0.391559,
+                                strokeWidth: 0.4,
                                 strokeLinejoin: "round",
                                 paintOrder: "stroke markers fill",
                             }}
-                            cx={85.26}
-                            cy={119.963}
+                            cx={85.0}
+                            cy={120.0}
                             r={20}
                         >
                             {status.charAt(1) === "a" &&
@@ -179,12 +179,12 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             style={{
                                 fill: `url(#f${signalID})`,
                                 fillOpacity: 1,
-                                strokeWidth: 0.391559,
+                                strokeWidth: 0.4,
                                 strokeLinejoin: "round",
                                 paintOrder: "stroke markers fill",
                             }}
-                            cx={85.26}
-                            cy={163.473}
+                            cx={85.0}
+                            cy={163.0}
                             r={20}
                         >
                             {status.charAt(2) === "g" &&
