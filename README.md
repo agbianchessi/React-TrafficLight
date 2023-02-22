@@ -19,13 +19,18 @@ Working demo on [CodeSandbox](https://codesandbox.io/s/react-trafficsignal-1n1rx
 
 **Props**
 - `status` - A three characters string (```/^[rRB][aAB][gGB]$/```):
-  -  ```B```: black/OFF  
-  -  ```R```: red light ON
-  -  ```r```: red light flashing
-  -  ```A```: amber light ON 
-  -  ```a```: amber light flashing
-  -  ```G```: green light ON 
-  -  ```g```: green light flashing 
+  -  ```B```: Black/OFF  
+  -  ```R```: Red light ON
+  -  ```r```: Red light flashing
+  -  ```A```: Amber light ON 
+  -  ```a```: Amber light flashing
+  -  ```G```: Green light ON 
+  -  ```g```: Green light flashing
+- `options` - _Optional_ :
+  -  ```horizontal```: traffic signal is rotated 90° counterclockwise (default:```false``` )  
+  -  ```clockwise```: if ```horizontal``` is ```true``` then traffic signal is rotated clockwise (default:```false``` ) 
+  -  ```width```: sets the [```width``` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the traffic signal element (default: ```100%```).
+  -  ```margin```: sets the [```margin``` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/margin) of the traffic signal element (default: ```0```).
 - `signalID` - _Optional_ A unique signal ID (Number)
 
 ### Example
@@ -38,8 +43,14 @@ function App() {
   return (
     <div className="App">
 
-      <div style={{ width: "33px" }}>
+      <div style={{ width: "35px" }}>
         <TrafficSignal status="RaG"></TrafficSignal>
+      </div>
+      <div style={{ width: "70px" }}>
+        <TrafficSignal status="BBg" options={{horizontal:true, clockwise:false}}></TrafficSignal>
+      </div>
+      <div style={{ width: "70px" }}>
+        <TrafficSignal status="rAG" options={{horizontal:true, clockwise:true}}></TrafficSignal>
       </div>
 
     </div>
