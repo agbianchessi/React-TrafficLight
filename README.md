@@ -39,7 +39,7 @@ function App() {
     <div className="App">
 
       <div style={{ width: "33px" }}>
-        <TrafficSignal colors="RaG"></TrafficSignal>
+        <TrafficSignal status="RaG"></TrafficSignal>
       </div>
 
     </div>
