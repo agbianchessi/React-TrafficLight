@@ -9,7 +9,7 @@ const randomID = (length) => {
     return result;
 };
 
-const TrafficSignal = ({ colors, signalID }) => {
+const TrafficSignal = ({ status, signalID }) => {
 
     if (signalID == null)
         signalID = randomID(32);
@@ -66,7 +66,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         />
                         <stop
                             style={{
-                                stopColor: colors.toUpperCase().charAt(2) === "G" ? "#00eb00" : "#333333",
+                                stopColor: status.toUpperCase().charAt(2) === "G" ? "#00eb00" : "#333333",
                                 stopOpacity: 1,
                             }}
                             offset={1}
@@ -82,7 +82,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         />
                         <stop
                             style={{
-                                stopColor: colors.toUpperCase().charAt(1) === "A" ? "#ffc600" : "#333333",
+                                stopColor: status.toUpperCase().charAt(1) === "A" ? "#ffc600" : "#333333",
                                 stopOpacity: 1,
                             }}
                             offset={1}
@@ -98,7 +98,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         />
                         <stop
                             style={{
-                                stopColor: colors.toUpperCase().charAt(0) === "R" ? "#ff0000" : "#333333",
+                                stopColor: status.toUpperCase().charAt(0) === "R" ? "#ff0000" : "#333333",
                                 stopOpacity: 1,
                             }}
                             offset={1}
@@ -135,7 +135,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         cy={76.452}
                         r={20}
                     >
-                        {colors.charAt(0) === "r" &&
+                        {status.charAt(0) === "r" &&
                             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
                         }
                     </circle>
@@ -151,7 +151,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         cy={119.963}
                         r={20}
                     >
-                        {colors.charAt(1) === "a" &&
+                        {status.charAt(1) === "a" &&
                             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
                         }
                     </circle>
@@ -167,7 +167,7 @@ const TrafficSignal = ({ colors, signalID }) => {
                         cy={163.473}
                         r={20}
                     >
-                        {colors.charAt(2) === "g" &&
+                        {status.charAt(2) === "g" &&
                             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
                         }
                     </circle>
@@ -178,7 +178,7 @@ const TrafficSignal = ({ colors, signalID }) => {
 }
 
 // Factory function (also called a higher-order function)
-function CreateIsTrafficSignalColors(isRequired) {
+function CreateIsTrafficSignalStatus(isRequired) {
     // The factory returns a custom prop type
     return function (props, propName, componentName) {
         const prop = props[propName];
@@ -200,11 +200,11 @@ function CreateIsTrafficSignalColors(isRequired) {
     }
 }
 
-const isTrafficSignalColors = CreateIsTrafficSignalColors(false);
-isTrafficSignalColors.isRequired = CreateIsTrafficSignalColors(true);
+const isTrafficSignalStatus = CreateIsTrafficSignalStatus(false);
+isTrafficSignalStatus.isRequired = CreateIsTrafficSignalStatus(true);
 
 TrafficSignal.propTypes = {
-    colors: isTrafficSignalColors.isRequired,
+    status: isTrafficSignalStatus.isRequired,
     signalID: PropTypes.number,
     options: PropTypes.object,
 }

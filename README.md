@@ -18,7 +18,7 @@ Working demo on [CodeSandbox](https://codesandbox.io/s/react-trafficsignal-1n1rx
 ### API
 
 **Props**
-- `colors` - A three characters string (```/^[rRB][aAB][gGB]$/```):
+- `status` - A three characters string (```/^[rRB][aAB][gGB]$/```):
   -  ```B```: black/OFF  
   -  ```R```: red light ON
   -  ```r```: red light flashing
