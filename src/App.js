@@ -24,6 +24,12 @@ function App() {
         <TrafficSignal status="BAB" options={{ horizontal: true, width: '70px', margin: '1em' }} />
         <TrafficSignal status="RBB" options={{ horizontal: true, clockwise: true, width: '105px', margin: '1em' }} />
       </div>
+      <div>
+        <TrafficSignal status="BBg" options={{ width: '35px', margin: '1em', hideRed: true, hideAmber: true }} />
+        <TrafficSignal status="RAG" options={{ width: '35px', margin: '1em', hideAmber: true }} />
+        <TrafficSignal status="BaB" options={{ width: '35px', margin: '1em', hideRed: true }} />
+        <TrafficSignal status="BaG" options={{ width: '35px', margin: '1em', hideRed: true, hideGreen: true }} />
+      </div>
     </div>
   );
 }

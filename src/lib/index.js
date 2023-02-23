@@ -2,7 +2,7 @@
  * @copyright Andrea Giovanni Bianchessi 2023
  * @author Andrea Giovanni Bianchessi <andrea.g.bianchessi@gmail.com>
  * @license MIT
- * @version 1.1.1
+ * @version 1.2.0
  */
 
 import TrafficSignal from './components/TrafficSignal';

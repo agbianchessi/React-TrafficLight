@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledTrafficSignal } from './TrafficSignal.styled';
+import { VB_SIZE, COLORS, COLOR_NAMES } from './constants';
 
 const randomID = (length) => {
     const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,8 +10,6 @@ const randomID = (length) => {
     return result;
 };
 
-const viewBoxSize = [0, 0, 60, 140];
-
 const TrafficSignal = ({ status, signalID, options = {} }) => {
 
     const horizontal = options?.horizontal === true ? true : false;
@@ -18,7 +17,12 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
     const rotation = horizontal === false ? 0 : (
         clockwise === true ? 90 : -90
     );
-    const traslate = (clockwise === true ? (viewBoxSize[3] - viewBoxSize[2]) : 0)
+    const translate = (clockwise === true ? (VB_SIZE[3] - VB_SIZE[2]) : 0)
+    const hiddenColors = [
+        options?.hideRed === true ? 1 : 0,
+        options?.hideAmber === true ? 1 : 0,
+        options?.hideGreen === true ? 1 : 0
+    ];
 
     if (signalID == null)
         signalID = randomID(32);
@@ -28,102 +32,79 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
             <svg
                 viewBox={
                     horizontal ?
-                        `${viewBoxSize[0]} ${viewBoxSize[1]} ${viewBoxSize[3]} ${viewBoxSize[2]}`
+                        `${VB_SIZE[0]} ${VB_SIZE[1]} ${hiddenColors.reduce(
+                            (height, hidden) => height + !hidden * 45, 5
+                        )} ${VB_SIZE[2]}`
                         :
-                        `${viewBoxSize[0]} ${viewBoxSize[1]} ${viewBoxSize[2]} ${viewBoxSize[3]}`
+                        `${VB_SIZE[0]} ${VB_SIZE[1]} ${VB_SIZE[2]} ${hiddenColors.reduce(
+                            (height, hidden) => height + !hidden * 45, 5
+                        )}`
                 }
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <g transform={
                     horizontal ?
-                        `translate(${traslate}) rotate(${rotation} ${viewBoxSize[2] / 2} ${viewBoxSize[2] / 2})`
+                        `translate(${translate}) rotate(${rotation} ${VB_SIZE[2] / 2} ${VB_SIZE[2] / 2})`
                         :
                         undefined
                 }
                 >
                     <defs>
-                        <radialGradient
-                            xlinkHref={`#a${signalID}`}
-                            id={`d${signalID}`}
-                            cx={85.0}
-                            cy={75.0}
-                            fx={85.0}
-                            fy={75.0}
-                            r={20}
-                            gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(0.0)"
-                        />
-                        <radialGradient
-                            xlinkHref={`#b${signalID}`}
-                            id={`e${signalID}`}
-                            cx={85.0}
-                            cy={75.0}
-                            fx={85.0}
-                            fy={75.0}
-                            r={20}
-                            gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(0.0 45.0)"
-                        />
-                        <radialGradient
-                            xlinkHref={`#c${signalID}`}
-                            id={`f${signalID}`}
-                            cx={85.0}
-                            cy={75.0}
-                            fx={85.0}
-                            fy={75.0}
-                            r={20}
-                            gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(0.0 90.0)"
-                        />
-                        <linearGradient id={`c${signalID}`}>
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(2) === "G" ? "#99ff99" : "#888888",
-                                    stopOpacity: 1,
-                                }}
-                                offset={0}
-                            />
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(2) === "G" ? "#00ff00" : "#333333",
-                                    stopOpacity: 1,
-                                }}
-                                offset={1}
-                            />
-                        </linearGradient>
-                        <linearGradient id={`b${signalID}`}>
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(1) === "A" ? "#ffc699" : "#888888",
-                                    stopOpacity: 1,
-                                }}
-                                offset={0}
-                            />
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(1) === "A" ? "#ffc600" : "#333333",
-                                    stopOpacity: 1,
-                                }}
-                                offset={1}
-                            />
-                        </linearGradient>
-                        <linearGradient id={`a${signalID}`}>
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(0) === "R" ? "#ff9999" : "#888888",
-                                    stopOpacity: 1,
-                                }}
-                                offset={0}
-                            />
-                            <stop
-                                style={{
-                                    stopColor: status.toUpperCase().charAt(0) === "R" ? "#ff0000" : "#333333",
-                                    stopOpacity: 1,
-                                }}
-                                offset={1}
-                            />
-                        </linearGradient>
+                        {
+                            COLOR_NAMES.map((e, i) => {
+                                let offset = 0;
+                                if (e === "Red")
+                                    offset = 0;
+                                if (e === "Amber")
+                                    offset = !hiddenColors[0] * 45.0;
+                                if (e === "Green")
+                                    offset = !hiddenColors[0] * 45.0 + !hiddenColors[1] * 45.0;
+
+                                if (hiddenColors[i])
+                                    return undefined;
+
+                                return (
+                                    <g key={i}>
+                                        <radialGradient
+                                            xlinkHref={`#${e}-lg-${signalID}`}
+                                            id={`${e}-rg-${signalID}`}
+                                            cx={85.0}
+                                            cy={75.0}
+                                            fx={85.0}
+                                            fy={75.0}
+                                            r={20}
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform={`translate(0.0 ${offset})`}
+                                        />
+                                        <linearGradient
+                                            id={`${e}-lg-${signalID}`}
+                                        >
+                                            <stop
+                                                style={{
+                                                    stopColor: status.toUpperCase().charAt(i) === e.charAt(0)
+                                                        ?
+                                                        COLORS[e].light :
+                                                        COLORS['Gray'].light,
+                                                    stopOpacity: 1,
+                                                }}
+                                                offset={0}
+                                            />
+                                            <stop
+                                                style={{
+                                                    stopColor: status.toUpperCase().charAt(i) === e.charAt(0)
+                                                        ?
+                                                        COLORS[e].dark :
+                                                        COLORS['Gray'].dark,
+                                                    stopOpacity: 1,
+                                                }}
+                                                offset={1}
+                                            />
+                                        </linearGradient>
+                                    </g>
+                                )
+                            })
+                        }
                     </defs>
                     <g transform="translate(-55.0 -50.0)">
                         <rect
@@ -136,61 +117,49 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                 paintOrder: "stroke markers fill",
                             }}
                             width={60}
-                            height={140}
+                            height={hiddenColors.reduce(
+                                (height, hidden) => height + !hidden * 45, 5
+                            )}
                             x={55.0}
                             y={50.0}
                             ry={6}
                             rx={6}
                         />
-                        <circle
-                            style={{
-                                opacity: 1,
-                                fill: `url(#d${signalID})`,
-                                fillOpacity: 1,
-                                strokeWidth: 0.4,
-                                strokeLinejoin: "round",
-                                paintOrder: "stroke markers fill",
-                            }}
-                            cx={85.0}
-                            cy={75.0}
-                            r={20}
-                        >
-                            {status.charAt(0) === "r" &&
-                                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
-                            }
-                        </circle>
-                        <circle
-                            style={{
-                                fill: `url(#e${signalID})`,
-                                fillOpacity: 1,
-                                strokeWidth: 0.4,
-                                strokeLinejoin: "round",
-                                paintOrder: "stroke markers fill",
-                            }}
-                            cx={85.0}
-                            cy={120.0}
-                            r={20}
-                        >
-                            {status.charAt(1) === "a" &&
-                                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
-                            }
-                        </circle>
-                        <circle
-                            style={{
-                                fill: `url(#f${signalID})`,
-                                fillOpacity: 1,
-                                strokeWidth: 0.4,
-                                strokeLinejoin: "round",
-                                paintOrder: "stroke markers fill",
-                            }}
-                            cx={85.0}
-                            cy={165.0}
-                            r={20}
-                        >
-                            {status.charAt(2) === "g" &&
-                                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
-                            }
-                        </circle>
+                        {
+                            COLOR_NAMES.map((e, i) => {
+                                let offset = 0;
+                                if (e === "Red")
+                                    offset = 0;
+                                if (e === "Amber")
+                                    offset = !hiddenColors[0] * 45.0;
+                                if (e === "Green")
+                                    offset = !hiddenColors[0] * 45.0 + !hiddenColors[1] * 45.0;
+
+                                if (hiddenColors[i])
+                                    return undefined;
+
+                                return (
+                                    <circle
+                                        key={i}
+                                        style={{
+                                            opacity: 1,
+                                            fill: `url(#${e}-rg-${signalID})`,
+                                            fillOpacity: 1,
+                                            strokeWidth: 0.4,
+                                            strokeLinejoin: "round",
+                                            paintOrder: "stroke markers fill",
+                                        }}
+                                        cx={85.0}
+                                        cy={75.0 + offset}
+                                        r={20}
+                                    >
+                                        {['r', 'a', 'g'].includes(status.charAt(i)) &&
+                                            <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
+                                        }
+                                    </circle>
+                                )
+                            })
+                        }
                     </g>
                 </g>
             </svg>
