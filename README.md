@@ -3,6 +3,8 @@ Traffic Signal component for React.
 
 ![Screenshot 2023-02-22 at 17 49 46](https://user-images.githubusercontent.com/5993480/220698672-fe251739-e071-4e7a-8b39-2835a90789ac.png)
 
+![Screenshot 2023-02-23 at 17 40 20](https://user-images.githubusercontent.com/5993480/220984644-d09e7a98-414f-474c-a5cb-3dd273afcf98.png)
+
 ---
 
 ### Install
