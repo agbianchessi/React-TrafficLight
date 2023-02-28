@@ -4,9 +4,8 @@ import TrafficSignal from './lib'
 function App() {
   return (
     <div className="App">
-
       <div style={{ width: "35px" }}>
-        <TrafficSignal status="RaG"></TrafficSignal>
+        <TrafficSignal status="RaG" />
       </div>
       <div>
         <TrafficSignal status="BBg" options={{ horizontal: true, clockwise: false, width: '75px' }} />
