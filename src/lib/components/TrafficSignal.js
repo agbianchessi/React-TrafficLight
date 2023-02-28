@@ -69,10 +69,10 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                         <radialGradient
                                             xlinkHref={`#${e}-lg-${signalID}`}
                                             id={`${e}-rg-${signalID}`}
-                                            cx={85.0}
-                                            cy={75.0}
-                                            fx={85.0}
-                                            fy={75.0}
+                                            cx={30.0}
+                                            cy={25.0}
+                                            fx={30.0}
+                                            fy={25.0}
                                             r={20}
                                             gradientUnits="userSpaceOnUse"
                                             gradientTransform={`translate(0.0 ${offset})`}
@@ -106,61 +106,59 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             })
                         }
                     </defs>
-                    <g transform="translate(-55.0 -50.0)">
-                        <rect
-                            style={{
-                                opacity: 1,
-                                fill: "#000",
-                                fillOpacity: 1,
-                                strokeWidth: 0.4,
-                                strokeLinejoin: "round",
-                                paintOrder: "stroke markers fill",
-                            }}
-                            width={60}
-                            height={hiddenColors.reduce(
-                                (height, hidden) => height + !hidden * 45, 5
-                            )}
-                            x={55.0}
-                            y={50.0}
-                            ry={6}
-                            rx={6}
-                        />
-                        {
-                            COLOR_NAMES.map((e, i) => {
-                                let offset = 0;
+                    <rect
+                        style={{
+                            opacity: 1,
+                            fill: "#000",
+                            fillOpacity: 1,
+                            strokeWidth: 0.4,
+                            strokeLinejoin: "round",
+                            paintOrder: "stroke markers fill",
+                        }}
+                        width={60}
+                        height={hiddenColors.reduce(
+                            (height, hidden) => height + !hidden * 45, 5
+                        )}
+                        x={0.0}
+                        y={0.0}
+                        ry={6}
+                        rx={6}
+                    />
+                    {
+                        COLOR_NAMES.map((e, i) => {
+                            let offset = 0;
                                 if (e === "Red")
-                                    offset = 0;
+                                offset = 0;
                                 if (e === "Amber")
-                                    offset = !hiddenColors[0] * 45.0;
+                                offset = !hiddenColors[0] * 45.0;
                                 if (e === "Green")
-                                    offset = !hiddenColors[0] * 45.0 + !hiddenColors[1] * 45.0;
+                                offset = !hiddenColors[0] * 45.0 + !hiddenColors[1] * 45.0;
 
-                                if (hiddenColors[i])
-                                    return undefined;
+                            if (hiddenColors[i])
+                                return undefined;
 
-                                return (
-                                    <circle
-                                        key={i}
-                                        style={{
-                                            opacity: 1,
-                                            fill: `url(#${e}-rg-${signalID})`,
-                                            fillOpacity: 1,
-                                            strokeWidth: 0.4,
-                                            strokeLinejoin: "round",
-                                            paintOrder: "stroke markers fill",
-                                        }}
-                                        cx={85.0}
-                                        cy={75.0 + offset}
-                                        r={20}
-                                    >
-                                        {['r', 'a', 'g'].includes(status.charAt(i)) &&
-                                            <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
-                                        }
-                                    </circle>
-                                )
-                            })
-                        }
-                    </g>
+                            return (
+                                <circle
+                                    key={i}
+                                    style={{
+                                        opacity: 1,
+                                        fill: `url(#${e}-rg-${signalID})`,
+                                        fillOpacity: 1,
+                                        strokeWidth: 0.4,
+                                        strokeLinejoin: "round",
+                                        paintOrder: "stroke markers fill",
+                                    }}
+                                    cx={30.0}
+                                    cy={25.0 + offset}
+                                    r={20}
+                                >
+                                    {['r', 'a', 'g'].includes(status.charAt(i)) &&
+                                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
+                                    }
+                                </circle>
+                            )
+                        })
+                    }
                 </g>
             </svg>
 
