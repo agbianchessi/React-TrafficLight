@@ -10,7 +10,7 @@ const randomID = (length) => {
     return result;
 };
 
-const TrafficSignal = ({ status, signalID, options = {} }) => {
+const TrafficSignal = ({ status, signalID, options = {}, onRedClick, onAmberClick, onGreenClick }) => {
 
     const horizontal = options?.horizontal === true ? true : false;
     const clockwise = options?.clockwise === true ? true : false;
@@ -127,12 +127,17 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                     {
                         COLOR_NAMES.map((e, i) => {
                             let offset = 0;
-                                if (e === "Red")
+                            let onClick = undefined;
+                            if (e === "Red") {
                                 offset = 0;
-                                if (e === "Amber")
+                                onClick = onRedClick;
+                            } else if (e === "Amber") {
                                 offset = !hiddenColors[0] * 45.0;
-                                if (e === "Green")
+                                onClick = onAmberClick;
+                            } else if (e === "Green") {
                                 offset = !hiddenColors[0] * 45.0 + !hiddenColors[1] * 45.0;
+                                onClick = onGreenClick;
+                            }
 
                             if (hiddenColors[i])
                                 return undefined;
@@ -140,6 +145,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                             return (
                                 <circle
                                     key={i}
+                                    onClick={ onClick ? (e) =>  onClick(e, status.charAt(i)) : undefined}
                                     style={{
                                         opacity: 1,
                                         fill: `url(#${e}-rg-${signalID})`,
@@ -147,6 +153,7 @@ const TrafficSignal = ({ status, signalID, options = {} }) => {
                                         strokeWidth: 0.4,
                                         strokeLinejoin: "round",
                                         paintOrder: "stroke markers fill",
+                                        cursor: onClick ? 'pointer' : undefined
                                     }}
                                     cx={30.0}
                                     cy={25.0 + offset}
@@ -196,6 +203,9 @@ TrafficSignal.propTypes = {
     status: isTrafficSignalStatus.isRequired,
     signalID: PropTypes.number,
     options: PropTypes.object,
+    onRedClick: PropTypes.func,
+    onAmberClick: PropTypes.func,
+    onGreenClick: PropTypes.func
 }
 
 export default TrafficSignal;

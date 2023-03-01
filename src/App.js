@@ -2,13 +2,34 @@ import React from 'react'
 import TrafficSignal from './lib'
 
 function App() {
+
+  const onLightClick = (e, status) => {
+    const colors = {
+      B: 'Black/OFF',
+      R: 'Red',
+      r: 'flashing Red',
+      G: 'Green',
+      g: 'flashing Green',
+      A: 'Amber',
+      a: 'flashing amber'
+    };
+    alert(`I am ${colors[status]}`)
+  }
+
   return (
     <div className="App">
       <div style={{ width: "35px" }}>
-        <TrafficSignal status="RaG" />
+        <TrafficSignal
+          status="RaG"
+          onRedClick={onLightClick}
+          onAmberClick={onLightClick}
+          onGreenClick={onLightClick}
+        />
       </div>
       <div>
-        <TrafficSignal status="BBg" options={{ horizontal: true, clockwise: false, width: '75px' }} />
+        <TrafficSignal
+          status="BBg" options={{ horizontal: true, clockwise: false, width: '75px' }}
+        />
       </div>
       <div>
         <TrafficSignal status="rAB" options={{ horizontal: true, clockwise: true, width: '75px' }} />

@@ -37,8 +37,11 @@ Working demo on [CodeSandbox](https://codesandbox.io/s/react-trafficsignal-1n1rx
   -  ```hideAmber```: hides the amber light (default:```false``` ) 
   -  ```hideGreen```: hides the green light (default:```false``` ) 
 - `signalID` - _Optional_ A unique signal ID (Number)
+- `onRedClick` - _Optional_ OnClick callback function. Function parameters: Event, light status (```/^[rRB]$/```) 
+- `onAmberClick` - _Optional_ OnClick callback function. Function parameters: Event, light status (```/^[aAB]$/```) 
+- `onGreenClick` - _Optional_ OnClick callback function. Function parameters: Event, light status (```/^[gGB]$/```) 
 
-### Example
+### Example 1
 ```js
 import './App.css';
 import React from 'react'
@@ -48,15 +51,140 @@ function App() {
   return (
     <div className="App">
       <div style={{ width: "35px" }}>
-        <TrafficSignal status="RaG" />
+        <TrafficSignal
+          status="RaG"
+        />
       </div>
-      <div style={{ width: "70px" }}>
-        <TrafficSignal status="BBg" options={{horizontal:true, clockwise:false}} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Example 2 - Horizontal
+```js
+import './App.css';
+import React from 'react'
+import TrafficSignal from 'react-trafficsignal'
+
+function App() {
+  return (
+    <div className="App">
+      <div>
+        <TrafficSignal
+          status="BBg" 
+          options={{ horizontal: true, clockwise: false, width: '75px' }}
+        />
       </div>
-      <div style={{ width: "70px" }}>
-        <TrafficSignal status="rAG" options={{horizontal:true, clockwise:true}} />
+      <div>
+        <TrafficSignal 
+          status="rAB" 
+          options={{ horizontal: true, clockwise: true, width: '75px' }} 
+        />
       </div>
-      <TrafficSignal status="RAG" options={{ width: '35px', margin: '1em', hideAmber: true }} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Example 3 - _width_ and _margin_
+```js
+import './App.css';
+import React from 'react'
+import TrafficSignal from 'react-trafficsignal'
+
+function App() {
+  return (
+    <div className="App">
+      <div>
+        <TrafficSignal 
+          status="BBG" 
+          options={{ width: '35px', margin: '1em' }} 
+        />
+        <TrafficSignal 
+          status="BAB" 
+          options={{ width: '70px', margin: '1em' }} 
+        />
+        <TrafficSignal 
+          status="RBB" 
+          options={{ width: '105px', margin: '1em' }} 
+        />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Example 4 - 1, 2 and 3 aspects
+```js
+import './App.css';
+import React from 'react'
+import TrafficSignal from 'react-trafficsignal'
+
+function App() {
+  return (
+    <div className="App">
+      <div>
+        <TrafficSignal 
+          status="BBg" 
+          options={{ width: '35px', margin: '1em', hideRed: true, hideAmber: true }} 
+        />
+        <TrafficSignal 
+          status="RAG"
+          options={{ width: '35px', margin: '1em', hideAmber: true }} 
+        />
+        <TrafficSignal 
+          status="BaB" 
+          options={{ width: '35px', margin: '1em', hideRed: true }} 
+        />
+        <TrafficSignal 
+          status="BaG" 
+          options={{ width: '35px', margin: '1em', hideRed: true, hideGreen: true }} 
+        />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Example 5 - onClick
+```js
+import './App.css';
+import React from 'react'
+import TrafficSignal from 'react-trafficsignal'
+
+function App() {
+  
+  const onLightClick = (e, status) => {
+    const colors = {
+      B: 'Black/OFF',
+      R: 'Red',
+      r: 'flashing Red',
+      G: 'Green',
+      g: 'flashing Green',
+      A: 'Amber',
+      a: 'flashing amber'
+    };
+    alert(`I am ${colors[status]}`)
+  }
+  
+  return (
+    <div className="App">
+      <div style={{ width: "35px" }}>
+        <TrafficSignal
+          status="RaG"
+          onRedClick={onLightClick}
+          onAmberClick={onLightClick}
+          onGreenClick={onLightClick}
+        />
+      </div>
     </div>
   );
 }
